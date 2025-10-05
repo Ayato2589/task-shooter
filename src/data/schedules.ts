@@ -15,7 +15,7 @@ export const scheduleTypes: Record<string, ScheduleType> = {
   },
 };
 
-export const schedules: Schedule[] = [
+export const initialSchedules: Schedule[] = [
   {
     id: '1',
     typeId: 'a',

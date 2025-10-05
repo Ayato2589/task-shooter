@@ -5,17 +5,20 @@ export const initialTodos: Todo[] = [
     id: "todo1",
     title: "設計",
     ScheduleTypeId: "a", // プログラミング
+    isCompleted: false,
     children: [
       {
         id: "todo1-1",
         title: "仕様書確認",
         ScheduleTypeId: "a",
+        isCompleted: false,
         children: null,
       },
       {
         id: "todo1-2",
         title: "設計図作成",
         ScheduleTypeId: "a",
+        isCompleted: false,
         children: null,
       },
     ],
@@ -24,17 +27,20 @@ export const initialTodos: Todo[] = [
     id: "todo2",
     title: "実装",
     ScheduleTypeId: "a", // プログラミング
+    isCompleted: false,
     children: [
       {
         id: "todo2-1",
         title: "コンポーネント作成",
         ScheduleTypeId: "a",
+        isCompleted: false,
         children: null,
       },
       {
         id: "todo2-2",
         title: "テストコード記述",
         ScheduleTypeId: "a",
+        isCompleted: false,
         children: null,
       },
     ],
@@ -43,17 +49,20 @@ export const initialTodos: Todo[] = [
     id: "todo3",
     title: "進捗確認",
     ScheduleTypeId: "b", // ミーティング
+    isCompleted: false,
     children: [
       {
         id: "todo3-1",
         title: "前回議事録確認",
         ScheduleTypeId: "b",
+        isCompleted: false,
         children: null,
       },
       {
         id: "todo3-2",
         title: "今週の課題整理",
         ScheduleTypeId: "b",
+        isCompleted: false,
         children: null,
       },
     ],

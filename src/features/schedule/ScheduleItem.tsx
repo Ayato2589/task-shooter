@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { TodoList } from "../todo/TodoList";
 import { COLOR_OF } from "../../consts/color";
 import { FONT_SIZE_OF } from "../../consts/size";
+import type { Todo } from "../../types/todo";
 
 type Schedule = {
     title: string;
@@ -9,14 +10,10 @@ type Schedule = {
     endTime: string; // HH:MM
 }
 
-type Todo = {
-    title: string;
-    children: Todo[] | null;
-};
-
 type Props = {
     schedule: Schedule;
     todos: Todo[];
+    toggleTodo: (id: string) => void;
 }
 
 const Item = styled.div({
@@ -46,7 +43,7 @@ const Title = styled.div({
     fontSize: FONT_SIZE_OF.SCHEDULE_TITLE,
 })
 
-export function ScheduleItem({ schedule, todos }: Props) {
+export function ScheduleItem({ schedule, todos, toggleTodo }: Props) {
     return (
         <Item>
             <LeftPart>
@@ -56,7 +53,7 @@ export function ScheduleItem({ schedule, todos }: Props) {
             <BorderLine />
             <RightPart>
                 <Title>{schedule.title}</Title>
-                {todos && <TodoList todos={todos} />}
+                {todos && <TodoList todos={todos} toggleTodo={toggleTodo} />}
             </RightPart>
         </Item>
     );
