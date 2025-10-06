@@ -7,6 +7,7 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { useScheduleTimeLine } from "../hooks/useScheduleTimeline";
 
 const Page = styled.div({
+    minHeight: '100vh',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
