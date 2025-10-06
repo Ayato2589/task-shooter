@@ -40,7 +40,7 @@ export const initialSchedules: Schedule[] = [
       hour: 14,
       minute: 0,
     },
-    repeat: ['MON', 'WED'],
+    repeat: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
   },
   {
     id: '3',
@@ -53,6 +53,6 @@ export const initialSchedules: Schedule[] = [
       hour: 13,
       minute: 0,
     },
-    repeat: ['MON', 'TUE', 'WED', 'THU', 'FRI'],
+    repeat: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
   },
 ];
