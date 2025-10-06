@@ -1,10 +1,7 @@
-import { useMemo, useState } from "react";
-import { dummySchedules } from "../data/todaySchedules";
+import { useMemo } from "react";
 import { useCursor } from "./useCursor";
 import { useSchedules } from "./useSchedules";
 import { useTodos } from "./useTodos";
-import type { Day } from "../types/schedule";
-import { UNSAFE_getHydrationData } from "react-router-dom";
 import { getDay, toHHMM } from "../lib/time";
 import { getScheduleStart } from "../lib/schedule";
 import { scheduleTypes } from "../data/schedules";
@@ -32,7 +29,6 @@ export function useScheduleTimeLine() {
 
     const {
         todos,
-        addTodo,
         toggleTodo,
     } = useTodos();
 
