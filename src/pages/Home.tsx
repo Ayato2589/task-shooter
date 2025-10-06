@@ -2,11 +2,11 @@ import styled from "@emotion/styled";
 import { COLOR_OF } from "../consts/color";
 import { ScheduleTimeLine } from "../features/schedule/ScheduleTimeLine";
 import { FONT_SIZE_OF } from "../consts/size";
-import { useTodos } from "../hooks/useTodos";
-import { useSchedules } from "../hooks/useSchedules";
+import { toMMDD } from "../lib/time";
+import { useHotkeys } from "react-hotkeys-hook";
+import { useScheduleTimeLine } from "../hooks/useScheduleTimeline";
 
 const Page = styled.div({
-    height: '100vh',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -16,31 +16,31 @@ const Page = styled.div({
 });
 
 export default function Home() {
-    const today = new Date();
-    const todayDate = `${today.getMonth()+1}/${today.getDate()}`;
-
     const {
-        todos,
+        cursor,
+        cursorUp,
+        cursorDown,
+        extractTodaySchedules,
         addTodo,
-        updateTodo,
-        toggleTodo,
-    } = useTodos();
+        editTodo,
+        completeTodo,
+    } = useScheduleTimeLine();
 
-    const {
-        addSchedule,
-        updateSchedule,
-        sortSchedulesByTime,
-    } = useSchedules();
+    useHotkeys('w', cursorUp);
+    useHotkeys('s', cursorDown);
+    useHotkeys('c', addTodo);
+    useHotkeys('e', editTodo);
+    useHotkeys('enter', completeTodo);
 
-    const sortedSchedules = sortSchedulesByTime();
+    const todaySchedules = extractTodaySchedules();
+    const todayDate = toMMDD(new Date());
 
     return (
         <Page>
             <ScheduleTimeLine
-                schedules={sortedSchedules}
-                todos={todos}
+                todaySchedules={todaySchedules}
                 todayDate={todayDate}
-                toggleTodo={toggleTodo}
+                cursor={cursor}
             />
         </Page>
     );

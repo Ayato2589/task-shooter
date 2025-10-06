@@ -1,34 +1,25 @@
 import styled from "@emotion/styled";
-import type { Schedule } from "../../types/schedule";
 import { ScheduleItem } from "./ScheduleItem";
-import { scheduleTypes } from "../../data/schedules";
-import { toHHMM } from "../../lib/time";
-import type { Todo } from "../../types/todo";
 import { TodayDate } from "./TodayDate";
+import type { TodaySchedule } from "../../hooks/useScheduleTimeline";
 
 type Props = {
-    schedules: Schedule[];
-    todos: Todo[];
+    todaySchedules: TodaySchedule[];
     todayDate: string;
-    toggleTodo: (id: string) => void;
+    cursor: number;
 };
 
 const TimeLine = styled.div({});
 
-export function ScheduleTimeLine({ schedules, todayDate, todos, toggleTodo }: Props) {
+export function ScheduleTimeLine({ todaySchedules, todayDate, cursor }: Props) {
     return (
         <TimeLine>
             <TodayDate todayDate={todayDate} />
 
-            {schedules.map((schedule, idx) => (
+            {todaySchedules.map((schedule, idx) => (
                 <ScheduleItem
-                    schedule={{
-                        title: scheduleTypes[schedule.typeId].title,
-                        startTime: toHHMM(schedule.startTime.hour, schedule.startTime.minute),
-                        endTime: toHHMM(schedule.endTime.hour, schedule.endTime.minute),
-                    }}
-                    todos={todos.filter(({ ScheduleTypeId }) => ScheduleTypeId == schedule.typeId)}
-                    toggleTodo={toggleTodo}
+                    schedule={schedule}
+                    cursor={cursor}
                     key={idx}
                 />
             ))}

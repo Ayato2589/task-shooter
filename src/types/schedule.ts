@@ -1,4 +1,4 @@
-type Day = (
+export type Day = (
     'MON' |
     'TUE' |
     'WED' |

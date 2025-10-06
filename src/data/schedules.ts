@@ -27,7 +27,7 @@ export const initialSchedules: Schedule[] = [
       hour: 12,
       minute: 0,
     },
-    repeat: ['TUE', 'WED', 'THU', 'FRI'],
+    repeat: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
   },
   {
     id: '2',

@@ -7,3 +7,4 @@ export function getScheduleStart(s: Schedule): number {
 export function getScheduleEnd(s: Schedule): number {
     return s.endTime.hour * 60 + s.endTime.minute;
 }
+
